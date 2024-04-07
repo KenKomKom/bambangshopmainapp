@@ -4,7 +4,7 @@ use crate::model::subscriber::Subscriber;
 
 // Singleton of Databsasee
 lazy_static! {
-    static ref SUBSCRIBERS: Dashmap<String, DashMap<String, Subscriber>>=Dashmap::new();
+    static ref SUBSCRIBERS: DashMap<String, DashMap<String, Subscriber>> = DashMap::new();
 }
 
 pub struct SubscriberRepository;
