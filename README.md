@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [v] Commit: `Implement delete function in Subscriber repository.`
     -   [v] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [v] Commit: `Create Notification service struct skeleton.`
+    -   [v] Commit: `Implement subscribe function in Notification service.`
+    -   [v] Commit: `Implement subscribe function in Notification controller.`
+    -   [v] Commit: `Implement unsubscribe function in Notification service.`
+    -   [v] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [v] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -78,10 +78,18 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-1
 1. Tergantung dari penggunaan design pattern observernya. Jika kita memiliki obeserver yang memiliki banyak jenis sehingga terdiri dari berbagai macam class, maka akan diperlukan pembuatan observer menggunakan trait. Namun pada BambangShop observernya, yaitu Subscriber hanya berupa satu class, sehingga tidak diperlukannya dibuat suatu trait, kecuali kedepannya akan ada penambahan observer baru.
-2. Kita perlu menggunakan DashMap karena dengan DashMap kita akan memiliki pemetaan tiap jenis produk ke tiap subscriber yang menginginkannya. Jika kita ganti menjadi vector, maka perlu dibuat dua vector untuk masing masing produk dimana 1 vector menyimpan url dan satu lagi subscribernya, di mana hal tersebut akan mempersulit perubahan data.
-3. Menurut pemahaman saya, kita memerlukan Dashmap dibanding dengan Hashmap karena dashmap adalah built in data structure yang merupakan hashmap yang cocok untuk multithreading. Dalam kasus kita, kita memerlukannya karena memang aplikasi BambangShop akan menggunakan multi threading dan Map SUBSCRIBER tersebut akan diakses oleh banyak thread. Untuk Singleton, singleton befungsi untuk memastikan selama program berjalan hanya akan ada 1 instance dari objek tersebut. Hal ini berguna agar kita bisa selalu memastikan kalau daftar subscriber terhadap produk kita berada hanya pada 1 dash map dan tidak berceceran di berbagai struktur data.
 
+2. Kita perlu menggunakan DashMap karena dengan DashMap kita akan memiliki pemetaan tiap jenis produk ke tiap subscriber yang menginginkannya. Jika kita ganti menjadi vector, maka perlu dibuat dua vector untuk masing masing produk dimana 1 vector menyimpan url dan satu lagi subscribernya, di mana hal tersebut akan mempersulit perubahan data.
+
+3. Menurut pemahaman saya, kita memerlukan Dashmap dibanding dengan Hashmap karena dashmap adalah built in data structure yang merupakan hashmap yang cocok untuk multithreading. Dalam kasus kita, kita memerlukannya karena memang aplikasi BambangShop akan menggunakan multi threading dan Map SUBSCRIBER tersebut akan diakses oleh banyak thread. Untuk Singleton, singleton befungsi untuk memastikan selama program berjalan hanya akan ada 1 instance dari objek tersebut. Hal ini berguna agar kita bisa selalu memastikan kalau daftar subscriber terhadap produk kita berada hanya pada 1 dash map dan tidak berceceran di berbagai struktur data.
 
 #### Reflection Publisher-2
 
+1. Service perlu dipisahkan dari Repository untuk memnuhi single responsibility principle. Pemisahan Service berfungsi untuk modul-modul yang mempunya fungsi mendapatkan dan mengolah data yang didapatkan dari repository sedangkan Layer Repository berfungsi sebagai layer yang berguna untuk mengakses data base, mengubah dan mendelete isi data base. Pemisahan dua layer ini membantu dalam pengembangan dan dan maintainability kode.
+
+2. Jika kita hanya menggunakan layer model tanpa layer yang lain, maka akan tercipta program yang memiliki coupling tinggi sehingga jika terdapat suatu perubahan maka akan perlu banyak perubahan yang dilakukan ke kode.
+
+3. Menurut ku, Postman sangat berguna untuk menguji aplikasi yang sudah kita buat dan melihat apakah aplikasinya akan mengembalikkan response yang sesuai dengan harapan kita berdasarkan request yang kita buat. Saya juga bisa menyesuaikan method yang diinginkan seperti CRUD-nya sehingga saya bisa melihat apakah data yang di-retrieve benar atau salah melalui Postman.
+
 #### Reflection Publisher-3
+
