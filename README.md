@@ -65,11 +65,11 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [v] Commit: `Implement unsubscribe function in Notification controller.`
     -   [v] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [v] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [v] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [v] Commit: `Implement publish function in Program service and Program controller.`
+    -   [v] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [v] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -93,3 +93,8 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-3
 
+1. Pada kasus tutorial ini yang digunakan adalah model push yang dapat dilihat pada bagian algoritma dimana ketika terjadi sesuatu pada modul objek misal create, delete atau update, notification service akan memanggil method yang akan mengiterasi semua subscribernya untuk mendapatkan update terbarunya.
+
+2. Jika kita menggunakan metode pull, maka tiap tiap subscriber harus menentukan sendiri apakah perubahan data yang terjadi relevan untuk mereka. Keuntungannya adalah observer menjadi bebas untuk menentukan data apa yang akan dia ambil dan kapan Ia ambil. Kerugiannya adalah observer menjadi perlu mengetahui struktur dari data sourcenya agar bisa melakukan hal-hal yang disebutkan tadi
+
+3. Yang akan terjadi adalah pada kode notificationservice saat notificationservice perlu me-notify tiap-tiap subscribernya maka akan tercipta antrian panjang jika terdapat banyak sekali subscriber yang membuat pengiriman notifikasi ke tiap subscriber menjadi terhambat akibat bottle neck kemampuan komputasi.
